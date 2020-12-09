@@ -1,0 +1,9 @@
+type Arb @entity {
+ id: ID!
+ fundsReturnToAddress: Bytes
+ liquidityProviderContractAddress: Bytes
+ tokens: String
+ amount: BigInt
+ exchanges: String
+ arbResp: Boolean
+}

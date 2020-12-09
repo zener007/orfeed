@@ -1,0 +1,24 @@
+specVersion: 0.0.2
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: orfeed
+    network: mainnet
+    source:
+      address: "0x8316B082621CFedAB95bf4a44a1d4B64a6ffc336"
+      abi: orfeed
+      startBlock: 9336410
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ExchangeRate
+      abis:
+        - name: orfeed
+          file: orfeed/abis/orfeed.json
+      callHandlers:
+        - function: arb(address,address,string[],uint256,string[])
+          handler: handlearb
+      file: orfeed/orfeed.wasm
